@@ -2,16 +2,20 @@
 This project is a PyTorch implementation of [Reptile](https://arxiv.org/abs/1803.02999), a Meta-Learning algorithm that focuses on learning an initial set of parameters. Reptile is similar to MAML (Model-Agnostic Meta-Learning) in that regard. It can be considered a novel first-order gradient-based Meta-Learning algorithm, bearing some resemblance to FOMAML (First Order Model-Agnostic Meta-Learning).
 
 The purpose of this project is to recreate the implementation process of [supervised-reptile](https://github.com/openai/supervised-reptile) in TensorFlow as closely as possible, using PyTorch.
+
+**PS:** Currently, this project can only run with the Omniglot dataset, and it provides a script implementation for downloading the MiniImageNet dataset.
 ## Getting the data
 
-You can download the dataset by running [data.sh](data.sh) or by setting the dataset download attribute to True. Both options will automatically download the dataset.
+You can download the dataset by running [omniglot.sh](omniglot.sh) [miniimagenet.sh](miniimagenet.sh) or by setting the dataset download attribute to True. Both options will automatically download the dataset.
 ```shell
-./data.sh 
+./omniglot.sh 
+./miniimagenet.sh
 ```
+
 ```
 Omniglot(DATA_DIR, download=True)
 ```
-
+**Tip:** When we intend to execute [miniimagenet.sh](miniimagenet.sh) to acquire the MiniImageNet dataset, we also need to run the [check.py](check.py) file to eliminate corrupted files during the download process. These corrupted files mainly result from changes in the byte ranges provided by the original script, causing incomplete or damaged image downloads. The good news is that the proportion of such images is almost negligible.
 ## Reproducing training runs
 
 You can train models with the `run_omniglot.py` scripts. Hyper-parameters are specified as flags (see `--help` for a detailed list).

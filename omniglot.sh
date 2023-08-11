@@ -1,7 +1,4 @@
 #!/bin/bash
-#
-# Fetch Omniglot Dataset.
-#
 
 OMNIGLOT_URL=https://github.com/brendenlake/omniglot/raw/master/python
 

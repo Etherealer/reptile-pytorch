@@ -1,12 +1,11 @@
 import os
 import random
-from typing import NoReturn
 
 import numpy as np
 import torch
 
 
-def setup_seed(seed: int) -> NoReturn:
+def setup_seed(seed: int) -> None:
     random.seed(seed)
     np.random.seed(seed)
     os.environ['PYTHONHASHSEED'] = str(seed)

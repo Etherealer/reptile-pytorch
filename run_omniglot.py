@@ -9,10 +9,11 @@ DATA_DIR = 'data'
 
 
 def main():
+
     args = argument_parser().parse_args()
     setup_seed(args.seed)
 
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
     train_set, test_set = split_dataset(Omniglot(DATA_DIR, download=True))
 
